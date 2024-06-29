@@ -79,11 +79,9 @@ function makeColorGreen() {
             }
         });
     });
-    // just to make it more faster
-    arr.forEach((b)=>{
-        b.classList.add('active');
-    })
-    // console.log(winnerIndices);
+    arr[0].classList.add('active');
+    arr[1].classList.add('active');
+    arr[2].classList.add('active');
 }
 
 function updateTheUI() {
