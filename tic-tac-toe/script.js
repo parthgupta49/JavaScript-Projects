@@ -35,7 +35,6 @@ boxes.forEach((box, index) => {
                 handleClick(index);
                 if (!(checkIfWon() === "")) {
                     let winner = checkIfWon();
-                    console.log("winner inside main, ",winner)
                     gameInfo.textContent = `Winner Player - ${winner} `;
                     // make the color green of the grid which contains winner indices
                     makeColorGreen();
@@ -158,7 +157,6 @@ function changeCurrentPlayer() {
         currentPlayer = "O";
     } else currentPlayer = "X";
     updateCurrentPlayerText();
-    console.log(gameGrid);
 }
 
 function updateCurrentPlayerText() {
