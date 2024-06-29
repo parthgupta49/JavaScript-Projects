@@ -1,0 +1,148 @@
+*,*::before,*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: 'Poppins', 'sans-serif';
+}
+
+#wrapper
+{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./assets/gradient-bg.jpg);
+    /* background-position: 100% 100%; */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.player-div {
+    width: 17rem ;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.5rem 3rem;
+    position: absolute;
+    left: 50%;
+    top: 3rem;
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    /* display: fl; */
+}
+
+
+
+.tic-tac-toe {
+    margin-top:4rem;
+    display: grid;
+    width: 90%;
+    max-width: 20rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(7px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 0.8rem;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    aspect-ratio: 1/1;
+    padding: 2rem;
+
+    /* margin-bottom: 1rem; */
+    /* place-items: center; */
+}
+
+.new-game {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(7px);
+    padding: 0.5rem 2rem;
+    border-radius: 0.8rem;
+
+    /* display: none; */
+    visibility: hidden;
+}
+.new-game.active {
+    /* display: flex; */
+    visibility: visible;
+}
+.box {
+    color: white;
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 1/1;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+.box.active {
+    transition: all 200ms;
+    background-color: green;
+}
+.box1,.box2,.box4,.box5
+{   
+    
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.box3,.box6{
+    border-bottom: 2px solid white;
+}
+
+.box7,.box8 {
+    border-right: 2px solid white;
+}
+
+.win {
+    background-color: green;
+}
+
+@media screen and (max-width: 250px){
+    .box {
+        font-size: 1.65rem;
+    }
+    .player-div{
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+#loveBtn {
+    position: absolute;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    color: white;
+    width: max-content;
+}
+#loveBtn span {
+    color: red;
+}
+
+@media screen and (max-width : 300px){
+    .player-div {
+        width: max-content;
+    }
+    #loveBtn {
+        width: fit-content;
+        text-align: center;
+        line-height: 1.5rem;
+    }
+}
