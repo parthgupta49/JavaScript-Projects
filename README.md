@@ -1,3 +1,2 @@
-# JavaScript-Projects
-
-# Weather App - https://weather-app-parthgupta.vercel.app/
+Weather App - https://weather-app-parthgupta.vercel.app/
+TicTacToe - https://tictactoe-parthgupta.netlify.app/
