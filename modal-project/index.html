@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal</title>
+    <style>
+        .card {
+            backdrop-filter: blur(15px);
+        }
+
+        .shadow1 {
+            background: linear-gradient(-25deg, #d84869, #f46641);
+            box-shadow: 0 0 50px #d84869;
+            animation: 6s linear 0s infinite alternate circleOneMovement;
+        }
+
+        @keyframes circleOneMovement {
+            from {
+                transform: translateX(0) scale(1);
+                
+            }
+            to {
+                transform: translateX(30px) scale(1.3);
+            }
+        }
+
+        .shadow2 {
+            box-shadow: 0 0 50px #5648d8;
+            background: linear-gradient(-25deg, #5648d8, #8641f4);
+            animation: 6s linear 0s infinite alternate circle2Movement;
+        }
+
+        @keyframes circle2Movement {
+            from {
+                transform: translateX(0);
+                top: 50%;
+            }
+            to {
+                transform: translateX(50px);
+                top: 52%;
+        }
+
+
+        }
+        
+
+
+        .modal-container {
+            visibility: hidden;
+            gap: 1.5rem;
+        }
+
+        .modal-open {
+            display: block;
+            z-index: 2000;
+        }
+        .linksHoverKarwanaHai{
+            background-color: transparent;
+            border-radius: 50%;
+            transition: all .5s ease-out;
+        }
+        .linksHoverKarwanaHai:hover{
+            background-color: blue;
+            color: white;
+        }
+
+        .shareMyProfileButton:hover{
+            #shareMyProfiletxt{
+                color: black;
+            }
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- wrapper -->
+    <div class="relative w-[100vw] h-[100vh] bg-black flex justify-center items-center">
+        <!-- floating circle 1 -->
+        <div class="w-[200px] h-[200px] rounded-full bg-[#123456] absolute top-14 left-[30%] shadow1"></div>
+
+        <!-- floating circle 2 -->
+        <div class="w-[300px] h-[300px] rounded-full bg-[#654321] absolute top-[50%] left-[50%] shadow2"></div>
+
+        <!-- card  -->
+        <div
+            class="w-[350px] h-[400px] bg-[#ffffff1a] z-[1000] flex flex-col items-center gap-5 rounded-md card border border-[#454545]">
+            <!-- card image -->
+            <div
+                class="h-[150px] bg-[url('./CoverImage.jpg')] w-[150px] meriImage mt-8 rounded-full bg-cover bg-center">
+            </div>
+            <!-- Image Name -->
+            <h2 class="text-white text-2xl font-bold">Parth Gupta</h2>
+            <h3 class="text-[#ffffff85] font-bold">Employee, Google</h3>
+
+            <div class="flex gap-2">
+                <!-- share profile button -->
+                <button class="text-white text-sm border py-[2px] px-[8px] border-white rounded-sm hover:text-black hover:bg-white shareMyProfileButton"
+                    onclick="openModal()">
+                    <i class="fa-solid fa-share" style="color: #ffffff" id="shareMyProfiletxt"></i> 
+                    Share My Profile
+                </button>
+
+                <!-- follow me button -->
+                <button class="text-white text-sm border py-[2px] px-[1.5rem] border-white rounded-sm hover:text-black hover:bg-white">
+                    Follow Me
+                </button>
+            </div>
+        </div>
+
+        <!-- modal -->
+
+        <!-- modal container -->
+        <div class="bg-black text-white border rounded-xl px-3 py-3 pb-6 flex flex-col absolute modal-container  h-[25%] w-[30%]">
+            <!-- Share My Profile -->
+            <div class="border-b-2 border-slate-600 flex gap-14 text-white justify-between pb-2 ">
+                <p class="text-xl font-bold leading-6">Share My Profile</p>
+                <!-- give a bottom border over here-->
+                <!-- close button -->
+                <button onclick="closeModal()">
+                    <i class="fa-solid fa-xmark fa-xl"></i>
+                </button>
+            </div>
+
+            <p class="text-sm font-bold -mt-[0.7rem]">Share this via</p>
+
+            <!-- HyperLinks -->
+            <div class="flex gap-5">
+                <!-- facebook -->
+                <a href="#" class="linksHoverKarwanaHai text-[#1771e6]">
+                    <div class="border border-[#1771e6] h-[40px] w-[40px] flex justify-center items-center rounded-full">
+                        <i class="fa-brands fa-facebook-f  hover:text-white"></i>
+                    </div>
+                    <!-- icon stuff -->
+                </a>
+                <!-- twitter -->
+                <a href="#" class="linksHoverKarwanaHai">
+                    <div class="border h-[40px] w-[40px] flex justify-center items-center rounded-full ">
+                        <i class="fa-brands fa-twitter "></i>
+                    </div>
+                    <!-- icon stuff -->
+                </a>
+                <!-- insta -->
+                <a href="#" class="linksHoverKarwanaHai">
+                    <div class="border h-[40px] w-[40px] flex justify-center items-center rounded-full">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <!-- icon stuff -->
+                </a>
+                <!-- whatsapp -->
+                <a href="#" class="linksHoverKarwanaHai">
+                    <div class="border h-[40px] w-[40px] flex justify-center items-center rounded-full">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <!-- icon stuff -->
+                </a>
+                <!--telegram  -->
+                <a href="#" class="linksHoverKarwanaHai">
+                    <div class="border h-[40px] w-[40px] flex justify-center items-center rounded-full">
+                        <i class="fa-brands fa-telegram"></i>
+                    </div>
+                    <!-- icon stuff -->
+                </a>
+            </div>
+        </div>
+
+        <!-- overlay stuff -->
+        <div class="bg-[#5f5f5f83] top-0 opacity-0 bottom-0 left-0 right-0 fixed overlay pointer-events-none" onclick="closeModal()"></div>
+    </div>
+</body>
+
+</html>
